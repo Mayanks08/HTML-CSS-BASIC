@@ -1,0 +1,42 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+   /* background-color: blueviolet ;*/
+   background: linear-gradient(217deg, rgba(208, 255, 0, 0.8), rgba(255,0,0,0) 70.71%),  
+               linear-gradient(-90deg, rgba(255, 0, 0, 0.8), rgba(38, 0, 255, 0.751) 70.71%), 
+              linear-gradient(336deg, rgba(104, 11, 204, 0.8), rgba(120, 48, 123, 0) 70.71%);
+}
+h1{
+    margin-bottom: 70px;
+    color: rgb(197, 16, 16);
+}
+.container{
+   position: relative;  
+}
+.container span{
+    position: absolute;
+    width:20px;
+    height: 10px;
+    background-color: rgb(27, 180, 63);
+    border-radius: 50%;
+    transform: rotate(calc(var(--i) * (360deg/20))) translate(50px);
+    animation: rotationAnim 2s linear infinite;
+    animation-delay: calc(var(--i) * 0.1s) ;
+}
+@keyframes rotationAnim {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
