@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>camera on</title>
+    <style>
+        body{
+            background-color: #212121;
+        }
+        h2{
+            color:antiquewhite
+        }
+        button{
+            height: 80px;
+            width: 150px;
+            font-size: 20px;
+            font-weight: 600;
+            font-style: italic;
+            background: linear-gradient(to bottom, #92ff33, #33c9ff);
+              /* background-color: rgb(111, 255, 0);  */
+            color: rgb(173, 66, 20); 
+        }
+    </style>
+</head>
+<body>
+    <h2>ALERT MODE</h2>
+    <video id="cameraFeed" autoplay></video>
+    <button id="startCamera">Start Camera</button>
+    <script>
+        const cameraFeed = document.getElementById('cameraFeed');
+        const startCameraButton = document.getElementById('startCamera');
+
+        startCameraButton.addEventListener('click',() => { 
+        navigator.mediaDevices.getUserMedia({video:true})
+            .then( stream => {
+            cameraFeed.srcObject =stream;
+             })
+            .catch(error =>{
+            console.error('Error accessing camera:', error)
+             })
+         })
+       
+    </script>
+</body>
+</html>
